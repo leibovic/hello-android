@@ -4,7 +4,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>hello.android@mozilla.org</em:id>
         <em:type>2</em:type>
-        <em:name>Hello Android</em:name>
+        <em:name>Firefox Hello for Android</em:name>
         <em:version>1.0</em:version>
         <em:bootstrap>true</em:bootstrap>
         <em:description>Firefox Hello integration for Firefox for Android</em:description>
@@ -14,7 +14,7 @@
         <em:targetApplication>
             <Description>
                 <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
-                <em:minVersion>43.0</em:minVersion>
+                <em:minVersion>40.0</em:minVersion>
                 <em:maxVersion>43.*</em:maxVersion>
             </Description>
         </em:targetApplication>

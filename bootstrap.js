@@ -9,15 +9,15 @@ XPCOMUtils.defineLazyGetter(this, "Strings", function() {
   return Services.strings.createBundle("chrome://hello/locale/hello.properties");
 });
 
-const PREF_URL_NEW_CALL = "hello.url.newCall";
-const DEFAULT_URL_NEW_CALL = "https://hello.firefox.com/newcall";
+const PREF_URL_CREATE = "hello.url.create";
+const DEFAULT_URL_CREATE = "https://loop-webapp-demo.stage.mozaws.net/create.html";
 
-XPCOMUtils.defineLazyGetter(this, "gURLNewCall", function() {
+XPCOMUtils.defineLazyGetter(this, "gURLCreate", function() {
   try {
-    return Services.prefs.getCharPref(PREF_URL_NEW_CALL);
+    return Services.prefs.getCharPref(PREF_URL_CREATE);
   } catch (e) {
     // If the pref isn't set, return the default URL.
-    return DEFAULT_URL_NEW_CALL;
+    return DEFAULT_URL_CREATE;
   }
 });
 
@@ -25,9 +25,10 @@ var gMenuId = null;
 
 function loadIntoWindow(win) {
   gMenuId = win.NativeWindow.menu.add({
-    name: Strings.GetStringFromName("menu.newCall"),
+    name: Strings.GetStringFromName("menu.hello"),
+    parent: win.NativeWindow.menu.toolsMenuID,
     callback() {
-      win.BrowserApp.addTab(gURLNewCall);
+      win.BrowserApp.addTab(gURLCreate);
     }
   });
 }
